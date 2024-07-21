@@ -2,17 +2,17 @@ package flipkart.stepdefinition;
 
 import io.cucumber.java.en.*;
 import org.junit.Assert;
-import org.openqa.selenium.bidi.log.Log;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pom_classes.Loginpage_locators;
-import pom_classes.Menupage_locators;
+import pom_classes.Productpage_locators;
 import utility_file.Base_class;
-import test_datas.Test_data;
+import test_data_files.Test_data;
 
 public class loginpage_steps extends Base_class {
     @When("Navigate to the login page")
     public void navigate_to_the_login_page() {
-        explicitWait().until(ExpectedConditions.visibilityOf(driver.findElement(Loginpage_locators.loginbtn))).click();
+        driver.findElement(Productpage_locators.flipkartlogo).click();
+        explicitWait().until(ExpectedConditions.visibilityOf(driver.findElement(Loginpage_locators.logindropbtn))).click();
         log("Navigating the login page ");
 
     }
@@ -37,7 +37,9 @@ public class loginpage_steps extends Base_class {
 
     @Then("Verify that the user is logged in successfully and redirected to the dashboard or homepage")
     public void verify_that_the_user_is_logged_in_successfully_and_redirected_to_the_dashboard_or_homepage() {
-        Assert.assertTrue(driver.findElement(Loginpage_locators.accountholdername).getAttribute("title").contains(Test_data.username));
+        boolean value = driver.findElement(Loginpage_locators.logindropbtn).getText().contains("Login");
+        Assert.assertFalse(value);
+
     }
 
 }

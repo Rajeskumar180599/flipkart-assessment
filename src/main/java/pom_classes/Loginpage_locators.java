@@ -3,7 +3,8 @@ package pom_classes;
 import org.openqa.selenium.By;
 
 public class Loginpage_locators {
-    public static By loginbtn = By.xpath("//span[text()='Login']");
+    public static By logindropbtn = By.xpath("//a[@class='_1TOQfO']/span");
+    public static By menubarloginbtn  =By.xpath("//a[text()='Login']");
     public static By popupsignupbtn = By.xpath("//span[text()='Sign Up']");
     public static By mobnumbertextbox = By.xpath("(//input[@type='text'])[2]");
     public static By otpsubmitbtn = By.xpath("//button[text()='Request OTP']");

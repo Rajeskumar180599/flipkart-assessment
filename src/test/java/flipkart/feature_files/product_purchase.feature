@@ -6,11 +6,11 @@ Feature: Automate the testing of an e-commerce website's main functionalities
 #    And Submit the registration form
 #    Then Verify that the user is registered successfully and redirected to the dashboard or homepage
 
-#  Scenario: User Login
-#    When Navigate to the login page
-#    And  Fill in the login form with valid credentials
-#    And  Submit the login form
-#    Then Verify that the user is logged in successfully and redirected to the dashboard or homepage
+  Scenario: User Login
+    When Navigate to the login page
+    And  Fill in the login form with valid credentials
+    And  Submit the login form
+    Then Verify that the user is logged in successfully and redirected to the dashboard or homepage
 
   Scenario: Product Search
     When Navigate to the homepage
@@ -22,7 +22,7 @@ Feature: Automate the testing of an e-commerce website's main functionalities
     And Add the product to the cart
     And Navigate to the cart and proceed to checkout
     And Fill in the checkout details
-#
-#  Scenario: Logout
-#    When  Logout from the application
-#    Then Verify that the user is logged out and redirected to the login page
+
+  Scenario: Logout
+    When  Logout from the application
+    Then Verify that the user is logged out and redirected to the login page

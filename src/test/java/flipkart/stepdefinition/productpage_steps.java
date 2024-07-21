@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import pom_classes.Cartpage_locators;
 import pom_classes.Checkoutpage_locators;
 import pom_classes.Productpage_locators;
-import test_datas.Test_data;
+import test_data_files.Test_data;
 import utility_file.Base_class;
 
 import java.util.Set;
@@ -87,11 +87,21 @@ public class productpage_steps extends Base_class {
         driver.findElement(Checkoutpage_locators.localityfield).sendKeys(Test_data.country);
         driver.findElement(Checkoutpage_locators.addressfield).sendKeys(Test_data.address);
         javascriptscrollintoview(driver.findElement(Checkoutpage_locators.savebtn));
+        explicitWait().until(ExpectedConditions.visibilityOfElementLocated(Checkoutpage_locators.cityfield)).clear();
         driver.findElement(Checkoutpage_locators.cityfield).sendKeys(Test_data.city);
         selectByVisibleText(driver.findElement(Checkoutpage_locators.statedropdown), Test_data.state);
         explicitWait().until(ExpectedConditions.elementToBeClickable(Checkoutpage_locators.homeradiobtn)).click();
         driver.findElement(Checkoutpage_locators.savebtn).click();
+        javascriptscrollintoview(driver.findElement(Checkoutpage_locators.emailfield));
 
-
+        try {
+            explicitWait().until(ExpectedConditions.visibilityOfElementLocated(Checkoutpage_locators.emailfield));
+            driver.findElement(Checkoutpage_locators.emailfield).sendKeys(Test_data.emailid);
+        } catch(Exception e) {
+            log("Email id already registered");
+        }
+        explicitWait().until(ExpectedConditions.elementToBeClickable(driver.findElement(Checkoutpage_locators.continuebtn))).click();
+        explicitWait().until(ExpectedConditions.visibilityOfElementLocated(Checkoutpage_locators.acceptcontinuebtn)).click();
+        log("navigating to the logout section");
     }
 }

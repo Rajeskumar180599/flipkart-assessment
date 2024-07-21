@@ -11,33 +11,41 @@ import java.time.Duration;
 
 public class Base_class {
     public static WebDriver driver;
-    public static void moveToElement(WebElement element){
+
+    public static void moveToElement(WebElement element) {
         Actions action = new Actions(driver);
         action.moveToElement(element).build().perform();
     }
 
     public static WebDriverWait explicitWait() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         return wait;
 
     }
-    public static void javascriptsendkeys(WebElement element){
+
+    public static void javascriptsendkeys(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].value='8072305936'",element);
+        js.executeScript("arguments[0].value='8072305936'", element);
     }
 
-    public static void selectByVisibleText(WebElement element,String text){
+    public static void selectByVisibleText(WebElement element, String text) {
         Select select = new Select(element);
         select.selectByVisibleText(text);
     }
 
-    public static void javascriptscrollintoview(WebElement element){
+    public static void javascriptscrollintoview(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView()",element);
+        js.executeScript("arguments[0].scrollIntoView()", element);
     }
 
-    public static void log(String text){
+    public static void log(String text) {
         System.out.println(text);
     }
 
+    public static void jsclick(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()",element);
+    }
+
 }
+
