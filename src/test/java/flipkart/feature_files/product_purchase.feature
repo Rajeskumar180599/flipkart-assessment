@@ -1,10 +1,10 @@
 Feature: Automate the testing of an e-commerce website's main functionalities
 
-#  Scenario:  User Registration
-#    Given user Navigate to the registration page
-#    When Fill in the registration form with valid details
-#    And Submit the registration form
-#    Then Verify that the user is registered successfully and redirected to the dashboard or homepage
+  Scenario:  User Registration
+    Given user Navigate to the registration page
+    When Fill in the registration form with valid details
+    And Submit the registration form
+    Then Verify that the user is registered successfully and redirected to the dashboard or homepage
 
   Scenario: User Login
     Given Navigate to the login page
