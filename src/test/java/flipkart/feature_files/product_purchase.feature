@@ -7,7 +7,7 @@ Feature: Automate the testing of an e-commerce website's main functionalities
 #    Then Verify that the user is registered successfully and redirected to the dashboard or homepage
 
   Scenario: User Login
-    When Navigate to the login page
+    Given Navigate to the login page
     And  Fill in the login form with valid credentials
     And  Submit the login form
     Then Verify that the user is logged in successfully and redirected to the dashboard or homepage

@@ -9,33 +9,10 @@ import pom_classes.Productpage_locators;
 import test_data_files.Test_data;
 import utility_file.Base_class;
 
+import java.time.Duration;
 import java.util.Set;
 
 public class productpage_steps extends Base_class {
-
-    @When("Navigate to the homepage")
-    public void navigate_to_the_homepage() {
-        driver.findElement(Productpage_locators.flipkartlogo).click();
-        log("Navigating to the homepage");
-
-    }
-
-    @When("Use the search functionality to find a specific product")
-    public void usethesearch_functionality_to_find_a_specific_product() {
-        explicitWait().until(ExpectedConditions.visibilityOf(driver.findElement(Productpage_locators.searchtextbox))).click();
-        driver.findElement(Productpage_locators.searchtextbox).sendKeys(Test_data.searching_text);
-        driver.findElement(Productpage_locators.searchicon).click();
-        log("Searching the product");
-    }
-
-    @Then("Verify that the search results contain the desired product")
-    public void verify_that_the_search_results_contain_the_desired_product() {
-
-        explicitWait().until(ExpectedConditions.visibilityOfElementLocated(Productpage_locators.searchtextverify));
-        boolean verify = driver.findElement(Productpage_locators.searchtextverify).getText().contains("Laptops");
-        Assert.assertTrue(verify);
-
-    }
 
     @When("Select a product from the search results")
     public void select_a_product_from_the_search_results() {

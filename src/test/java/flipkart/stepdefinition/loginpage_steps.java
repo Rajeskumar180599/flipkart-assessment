@@ -8,9 +8,12 @@ import pom_classes.Productpage_locators;
 import utility_file.Base_class;
 import test_data_files.Test_data;
 
+import java.time.Duration;
+
 public class loginpage_steps extends Base_class {
-    @When("Navigate to the login page")
+    @Given("Navigate to the login page")
     public void navigate_to_the_login_page() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(Productpage_locators.flipkartlogo).click();
         explicitWait().until(ExpectedConditions.visibilityOf(driver.findElement(Loginpage_locators.logindropbtn))).click();
         log("Navigating the login page ");

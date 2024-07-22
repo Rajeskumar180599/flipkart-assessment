@@ -42,9 +42,9 @@ public class registrationpage_steps extends Base_class {
     @When("Submit the registration form")
     public void submit_the_form() {
         try {
-            explicitWait().until(ExpectedConditions.elementToBeClickable(Loginpage_locators.signupbtn)).click();
+            driver.findElement(Loginpage_locators.signupbtn).click();
             log("Navigate to the dashboard page");
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             log("Submit method skipped");
         }
     }
@@ -52,10 +52,10 @@ public class registrationpage_steps extends Base_class {
     @Then("Verify that the user is registered successfully and redirected to the dashboard or homepage")
     public void verify_that_the_user_is_registered_successfully_and_redirected_to_the_dashboard_or_homepage() {
         try {
-            explicitWait().until(ExpectedConditions.visibilityOf(driver.findElement(Loginpage_locators.logindropbtn)));
+            driver.findElement(Loginpage_locators.logindropbtn).isDisplayed();
             boolean value = driver.findElement(Loginpage_locators.logindropbtn).getText().contains("Login");
             Assert.assertFalse(value);
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             log("Register page assertion skipped");
         }
     }
